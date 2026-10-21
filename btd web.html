@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTD TECHNOLOGIES | Turning Your Ideas Into Digital Reality</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0a0a0c',
+            charcoal: '#121216',
+            silver: {
+              100: '#f3f4f6',
+              200: '#e5e7eb',
+              300: '#d1d5db',
+              400: '#9ca3af',
+              500: '#6b7280',
+              glow: 'rgba(211, 220, 230, 0.25)',
+            }
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #070709;
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Silver Metallic Gradients */
+    .silver-text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #d1d5db 40%, #888e99 70%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .silver-border-gradient {
+      border-image: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(156,163,175,0.1), rgba(255,255,255,0.2)) 1;
+    }
+
+    .silver-card {
+      background: rgba(18, 18, 22, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .silver-card:hover {
+      border-color: rgba(209, 213, 219, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .silver-btn {
+      background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 100%);
+      color: #0a0a0c;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(229, 231, 235, 0.15);
+    }
+
+    .silver-btn:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #d1d5db 100%);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .metallic-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(209, 213, 219, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-silver-300 selection:text-obsidian">
+
+  <!-- Background Ambient Glows -->
+  <div class="metallic-glow -top-40 -left-40"></div>
+  <div class="metallic-glow top-1/2 -right-40"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-obsidian/80 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <svg class="w-10 h-10 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="50%" stop-color="#a1a1aa" />
+              <stop offset="100%" stop-color="#52525b" />
+            </linearGradient>
+          </defs>
+          <path d="M 120 20 L 190 60 C 170 120, 80 160, 20 120 C 50 150, 150 130, 180 80 C 190 60, 160 30, 120 20 Z" fill="url(#navSilverGrad)" opacity="0.8"/>
+          <text x="35" y="115" font-family="'Space Grotesk', sans-serif" font-size="90" font-weight="900" fill="url(#navSilverGrad)">B</text>
+          <text x="75" y="65" font-family="'Space Grotesk', sans-serif" font-size="85" font-weight="900" fill="url(#navSilverGrad)">T</text>
+          <text x="105" y="125" font-family="'Space Grotesk', sans-serif" font-size="95" font-weight="900" fill="url(#navSilverGrad)">D</text>
+        </svg>
+        <span class="font-heading font-bold text-xl tracking-wider silver-text-gradient">BTD TECHNOLOGIES</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+        <a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-lg silver-btn text-sm font-semibold">
+        Request a Quote
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white focus:outline-none">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-charcoal border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+      <a href="#services" class="block py-2 text-gray-300 hover:text-white">Services</a>
+      <a href="#pricing" class="block py-2 text-gray-300 hover:text-white">Pricing</a>
+      <a href="#roadmap" class="block py-2 text-gray-300 hover:text-white">Roadmap</a>
+      <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+      <a href="#contact" class="block w-full text-center py-3 rounded-lg silver-btn text-sm mt-4">Request a Quote</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION -->
+    <section class="relative py-24 md:py-32 overflow-hidden border-b border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <!-- Large Silver Logo Graphic Header -->
+        <div class="flex justify-center mb-8">
+          <svg class="w-32 h-32 md:w-44 md:h-44 drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heroSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="35%" stop-color="#e5e7eb" />
+                <stop offset="70%" stop-color="#9ca3af" />
+                <stop offset="100%" stop-color="#4b5563" />
+              </linearGradient>
+            </defs>
+            <path d="M 120 20 L 190 60 C 170 120, 80 160, 20 120 C 50 150, 150 130, 180 80 C 190 60, 160 30, 120 20 Z" fill="url(#heroSilverGrad)" opacity="0.9"/>
+            <text x="35" y="115" font-family="'Space Grotesk', sans-serif" font-size="90" font-weight="900" fill="url(#heroSilverGrad)">B</text>
+            <text x="75" y="65" font-family="'Space Grotesk', sans-serif" font-size="85" font-weight="900" fill="url(#heroSilverGrad)">T</text>
+            <text x="105" y="125" font-family="'Space Grotesk', sans-serif" font-size="95" font-weight="900" fill="url(#heroSilverGrad)">D</text>
+          </svg>
+        </div>
+
+        <!-- Headline & Tagline -->
+        <h1 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl tracking-tight text-white mb-6 leading-tight">
+          Turning Your Ideas Into <span class="silver-text-gradient">Digital Reality.</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+          We design and develop modern websites, applications, and digital solutions that help businesses work smarter and grow faster.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl silver-btn text-base font-semibold flex items-center justify-center gap-2">
+            <span>Get a Website</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+          <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl silver-card text-gray-300 hover:text-white font-medium text-base flex items-center justify-center gap-2">
+            <span>Explore Our Services</span>
+            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+          </a>
+        </div>
+
+        <!-- Quick Contact Info Pills -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-4 p-3 rounded-2xl bg-charcoal/80 border border-white/10 text-xs sm:text-sm text-gray-300">
+          <a href="mailto:tdbryton@gmail.com" class="flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 text-gray-400"></i>
+            <span>tdbryton@gmail.com</span>
+          </a>
+          <span class="text-gray-600 hidden sm:inline">•</span>
+          <a href="tel:0785026863" class="flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="phone" class="w-4 h-4 text-gray-400"></i>
+            <span>0785026863</span>
+          </a>
+          <span class="text-gray-600 hidden sm:inline">•</span>
+          <a href="tel:0789443260" class="flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="phone" class="w-4 h-4 text-gray-400"></i>
+            <span>0789443260</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Our Core Services</h2>
+          <p class="text-gray-400 text-base sm:text-lg">Tailored digital software solutions built to fit your exact business goals.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Service 1 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">Business Website</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">A high-converting, professional online presence designed to elevate your brand and bring in qualified client inquiries.</p>
+            </div>
+            <a href="#contact" onclick="selectService('Business website')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">E-commerce Website</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">A fully-featured online store with payment gateways, dynamic catalog management, and seamless order checkout workflows.</p>
+            </div>
+            <a href="#contact" onclick="selectService('E-commerce website')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="calendar" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">Booking System</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">Automated scheduling platforms that make managing client appointments, rentals, and service reservations effortless.</p>
+            </div>
+            <a href="#contact" onclick="selectService('Booking system')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">School or Church Website</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">Informative, easy-to-navigate web portals built specifically for educational institutions and community organizations.</p>
+            </div>
+            <a href="#contact" onclick="selectService('School or church website')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">Custom Application</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">Tailor-made web applications engineered around your exact unique operational logic and business requirements.</p>
+            </div>
+            <a href="#contact" onclick="selectService('Custom application')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="silver-card rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-200">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-white mb-3">Website Maintenance</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">Continuous security updates, server monitoring, content revisions, and ongoing technical support for peace of mind.</p>
+            </div>
+            <a href="#contact" onclick="selectService('Website maintenance')" class="inline-flex items-center text-sm font-semibold text-gray-300 hover:text-white gap-2">
+              <span>Request Quote</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 border-t border-white/5 bg-charcoal/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Transparent Starting Pricing</h2>
+          <p class="text-gray-400 text-base sm:text-lg">Clear and competitive pricing structures designed to scale with your business.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Plan 1 -->
+          <div class="silver-card rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2 block">Starter</span>
+              <h3 class="font-heading text-xl font-bold text-white mb-4">Basic Website</h3>
+              <div class="text-3xl font-bold text-white mb-6">$30 <span class="text-sm font-normal text-gray-400">– $60</span></div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Personal/Portfolio Site</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Responsive Mobile Layout</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Contact Form</li>
+              </ul>
+            </div>
+            <a href="#contact" onclick="selectPlan('Basic Personal ($30–$60)')" class="w-full text-center py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-colors text-sm">
+              Select Plan
+            </a>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="silver-card rounded-2xl p-6 flex flex-col justify-between relative border-gray-500">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-silver-300 font-semibold mb-2 block">Popular</span>
+              <h3 class="font-heading text-xl font-bold text-white mb-4">Small Business</h3>
+              <div class="text-3xl font-bold text-white mb-6">$60 <span class="text-sm font-normal text-gray-400">– $150</span></div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Full Company Showcase</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Service Sections & Forms</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Basic SEO Optimization</li>
+              </ul>
+            </div>
+            <a href="#contact" onclick="selectPlan('Small Business ($60–$150)')" class="w-full text-center py-2.5 rounded-lg silver-btn text-sm">
+              Select Plan
+            </a>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="silver-card rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2 block">Advanced</span>
+              <h3 class="font-heading text-xl font-bold text-white mb-4">Business Website +</h3>
+              <div class="text-3xl font-bold text-white mb-6">$150 <span class="text-sm font-normal text-gray-400">– $300+</span></div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Dynamic Content & Systems</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Booking or Dynamic Features</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Priority Speed Optimization</li>
+              </ul>
+            </div>
+            <a href="#contact" onclick="selectPlan('Business Web Plus ($150–$300+)')" class="w-full text-center py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-colors text-sm">
+              Select Plan
+            </a>
+          </div>
+
+          <!-- Plan 4 -->
+          <div class="silver-card rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2 block">Enterprise</span>
+              <h3 class="font-heading text-xl font-bold text-white mb-4">Custom Software</h3>
+              <div class="text-3xl font-bold text-white mb-6">Custom Quote</div>
+              <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Bespoke Web Applications</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Database & API Integrations</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Full Scalability Architecture</li>
+              </ul>
+            </div>
+            <a href="#contact" onclick="selectPlan('Custom Application')" class="w-full text-center py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-colors text-sm">
+              Get Started
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE ROADMAP SECTION -->
+    <section id="roadmap" class="py-20 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Platform Growth Roadmap</h2>
+          <p class="text-gray-400 text-base sm:text-lg">Upcoming features and system enhancements planned for our client ecosystem.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="silver-card p-6 rounded-2xl">
+            <div class="text-silver-300 font-mono text-sm mb-2">Phase 1</div>
+            <h4 class="font-heading font-bold text-white text-lg mb-2">Lead Generation</h4>
+            <p class="text-gray-400 text-sm">Currently Active: Instant quote calculations and direct consultation requests.</p>
+          </div>
+
+          <div class="silver-card p-6 rounded-2xl opacity-75">
+            <div class="text-gray-500 font-mono text-sm mb-2">Phase 2</div>
+            <h4 class="font-heading font-bold text-white text-lg mb-2">Customer Accounts</h4>
+            <p class="text-gray-400 text-sm">Dedicated client dashboards to submit project updates and track design files.</p>
+          </div>
+
+          <div class="silver-card p-6 rounded-2xl opacity-75">
+            <div class="text-gray-500 font-mono text-sm mb-2">Phase 3</div>
+            <h4 class="font-heading font-bold text-white text-lg mb-2">Online Payments</h4>
+            <p class="text-gray-400 text-sm">Integrated payment processing for instant deposits and milestone billing.</p>
+          </div>
+
+          <div class="silver-card p-6 rounded-2xl opacity-75">
+            <div class="text-gray-500 font-mono text-sm mb-2">Phase 4</div>
+            <h4 class="font-heading font-bold text-white text-lg mb-2">Automated Invoicing</h4>
+            <p class="text-gray-400 text-sm">Real-time project tracking and instant PDF invoice generation.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & QUOTE REQUEST SECTION -->
+    <section id="contact" class="py-20 border-t border-white/5 bg-charcoal/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Direct Details -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Request a Quote</h2>
+              <p class="text-gray-400 text-base mb-8">
+                Tell us about your project requirements. We will calculate the estimated price and send you a formal quotation promptly.
+              </p>
+
+              <div class="space-y-6">
+                
+                <!-- Phone Numbers Card -->
+                <div class="silver-card p-5 rounded-xl flex items-start gap-4">
+                  <div class="p-3 rounded-lg bg-white/5 border border-white/10 text-gray-200">
+                    <i data-lucide="phone-call" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Direct Call / WhatsApp</h4>
+                    <div class="flex flex-col space-y-1">
+                      <a href="tel:0785026863" class="text-white font-medium hover:text-gray-300 transition-colors">0785026863</a>
+                      <a href="tel:0789443260" class="text-white font-medium hover:text-gray-300 transition-colors">0789443260</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="silver-card p-5 rounded-xl flex items-start gap-4">
+                  <div class="p-3 rounded-lg bg-white/5 border border-white/10 text-gray-200">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Email Inquiry</h4>
+                    <a href="mailto:tdbryton@gmail.com" class="text-white font-medium hover:text-gray-300 transition-colors">tdbryton@gmail.com</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-400">
+              ⚡ Fast Response Guarantee: Requests submitted during regular business hours receive feedback within 24 hours.
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-7">
+            <form id="quote-form" onsubmit="handleFormSubmit(event)" class="silver-card p-8 rounded-2xl space-y-6">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Name</label>
+                  <input type="text" required placeholder="John Doe" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gray-400 transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Email Address</label>
+                  <input type="email" required placeholder="john@example.com" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gray-400 transition-colors">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Phone Number</label>
+                  <input type="tel" required placeholder="0712345678" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gray-400 transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Service Required</label>
+                  <select id="service-select" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gray-400 transition-colors">
+                    <option value="Business website">Business Website</option>
+                    <option value="E-commerce website">E-commerce Website</option>
+                    <option value="Booking system">Booking System</option>
+                    <option value="School or church website">School or Church Website</option>
+                    <option value="Custom application">Custom Application</option>
+                    <option value="Website maintenance">Website Maintenance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Expected Budget Range</label>
+                <select id="plan-select" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gray-400 transition-colors">
+                  <option value="Basic Personal ($30–$60)">Basic Personal Website ($30–$60)</option>
+                  <option value="Small Business ($60–$150)">Small Business Website ($60–$150)</option>
+                  <option value="Business Web Plus ($150–$300+)">Business Website + Extra Features ($150–$300+)</option>
+                  <option value="Custom Application">Custom Web Application (Quoted Individually)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Project Details</label>
+                <textarea rows="4" required placeholder="Describe what you want your website or application to achieve..." class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gray-400 transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl silver-btn font-bold text-base flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                <span>Submit Quotation Request</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-obsidian py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <svg class="w-8 h-8" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="footSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#6b7280" />
+              </linearGradient>
+            </defs>
+            <path d="M 120 20 L 190 60 C 170 120, 80 160, 20 120 C 50 150, 150 130, 180 80 C 190 60, 160 30, 120 20 Z" fill="url(#footSilverGrad)"/>
+            <text x="35" y="115" font-family="'Space Grotesk', sans-serif" font-size="90" font-weight="900" fill="url(#footSilverGrad)">B</text>
+            <text x="75" y="65" font-family="'Space Grotesk', sans-serif" font-size="85" font-weight="900" fill="url(#footSilverGrad)">T</text>
+            <text x="105" y="125" font-family="'Space Grotesk', sans-serif" font-size="95" font-weight="900" fill="url(#footSilverGrad)">D</text>
+          </svg>
+          <span class="font-heading font-bold text-lg text-white">BTD TECHNOLOGIES</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400">
+          <a href="mailto:tdbryton@gmail.com" class="hover:text-white">tdbryton@gmail.com</a>
+          <span>•</span>
+          <a href="tel:0785026863" class="hover:text-white">0785026863</a>
+          <span>•</span>
+          <a href="tel:0789443260" class="hover:text-white">0789443260</a>
+        </div>
+
+        <p class="text-xs text-gray-500">
+          © <span id="year">2026</span> BTD TECHNOLOGIES. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 silver-card bg-obsidian/90 text-white px-6 py-4 rounded-xl border border-white/20 shadow-2xl flex items-center gap-3">
+    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400"></i>
+    <div>
+      <h4 class="font-bold text-sm">Quote Submitted!</h4>
+      <p class="text-xs text-gray-400">We will calculate the price and email/call you shortly.</p>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Set dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Select Service Helper Function
+    function selectService(serviceName) {
+      const selectElem = document.getElementById('service-select');
+      if (selectElem) {
+        selectElem.value = serviceName;
+      }
+    }
+
+    // Select Plan Helper Function
+    function selectPlan(planName) {
+      const planElem = document.getElementById('plan-select');
+      if (planElem) {
+        planElem.value = planName;
+      }
+    }
+
+    // Handle Contact Form Submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      const toast = document.getElementById('toast');
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      
+      e.target.reset();
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
